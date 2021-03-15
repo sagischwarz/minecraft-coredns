@@ -1,0 +1,7 @@
+.:53 {
+    rewrite stop {
+        name regex geo.hivebedrock.network|hivebedrock.network|mco.mineplex.com|play.inpvp.net|mco.lbsg.net|mco.cubecraft.net|play.galaxite.net example.org
+    }
+    forward . 192.0.2.1:53
+    log
+}
