@@ -1,0 +1,7 @@
+# Minecraft for consoles on your self hosted server
+
+## Problem
+Console makers don't allow you to play Minecraft (Bedrock Edition) on your [self hosted server](https://www.minecraft.net/en-us/download/server/bedrock/). Instead, you have to buy a realm or play on one of the public instances. But one can fiddle with DNS so that the domains pointing to the public instances actually resolve to your own server. There is a project called [BedrockConnect](https://github.com/Pugmatt/BedrockConnect) that does this for you, but I think it is just too complex for a simple use case and you have to trust their DNS servers if you don't want to host the project yourself.
+
+## Solution
+I have created a small Corefile (the configuration file for [CoreDNS](https://coredns.io/)) which redirects all domains associated with the public Minecraft servers to a domain of your choice. Just replace `example.org` with your Minecraft server domain and `192.0.2.1` with a DNS server of your choice, place this file next to your CoreDNS binary and run it. Configure the IP address of the computer where CoreDNS is running (e.g., a [Raspberry Pi](https://www.raspberrypi.org/)) as the DNS server on your console. Now every public server will directly connect you to your own instance.
